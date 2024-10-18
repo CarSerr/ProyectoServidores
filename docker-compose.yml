@@ -10,7 +10,7 @@ services:
       - mysql_proyecto_servidores:/var/lib/mysql
 
   proyecto-servidores:
-    image: proyecto-servidores:latest
+    image: proyectoservidores:latest
     container_name: ProyectoServidores
     ports: 
       - "3006:3000"

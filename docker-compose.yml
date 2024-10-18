@@ -9,7 +9,7 @@ services:
     volumes:
       - mysql_proyecto_servidores:/var/lib/mysql
 
-  proyecto-servidoresPrueba:
+  proyecto-servidores:
     image: proyecto-servidores:latest
     container_name: ProyectoServidores
     ports: 

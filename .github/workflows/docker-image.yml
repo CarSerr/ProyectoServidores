@@ -7,7 +7,7 @@ on:
 
 jobs:
   build-and-push:
-    runs-on: proyecto-servidores
+    runs-on: ubuntu-latest
     steps:
       - name: Clone repository
         uses: actions/checkout@v4

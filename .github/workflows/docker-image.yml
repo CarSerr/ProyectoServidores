@@ -1,0 +1,27 @@
+name: Docker Build & Publish
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build-and-push:
+    runs-on: proyecto-servidores
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v4
+
+      - name: Login to Docker Hub
+        run: docker login -u "${{ secrets.DOCKER_USERNAME }}" -p "${{ secrets.DOCKER_PASSWORD }}"
+
+      - name: Build Docker Image
+        run: docker build -t carserr777/incident-app:${{ github.sha }} . 
+
+      - name: Tag Latest
+        run: docker tag carserr777/incident-app:${{ github.sha }} carserr777/incident-app:latest
+
+      - name: Push Docker Image
+        run: |
+          docker push carserr777/incident-app:${{ github.sha }}
+          docker push carserr777/incident-app:latest

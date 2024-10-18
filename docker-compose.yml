@@ -1,0 +1,25 @@
+services:
+  mysql:
+    image: mysql
+    container_name: mysql
+    ports:
+      - "3307:3306"
+    environment: 
+      MYSQL_ROOT_PASSWORD: 12345  
+    volumes:
+      - mysql_proyecto_servidores:/var/lib/mysql
+
+  proyecto-servidores:
+    image: proyecto-servidores:latest
+    container_name: ProyectoServidores
+    ports: 
+      - "3006:3000"
+    environment:
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_HOST: mysql
+      MYSQL_DB: ${MYSQL_DB}
+      MYSQL_PORT: 3306
+
+volumes:
+  mysql_proyecto_servidores:

@@ -8,7 +8,7 @@ const db = new Sequelize ({
     password: envs.MYSQL_PASSWORD,
     host: envs.MYSQL_HOST,
     port: envs.MYSQL_PORT,
-    dialect: "mysql",
+    dialect: 'mysql',
     models: [Tarea]
 });
 

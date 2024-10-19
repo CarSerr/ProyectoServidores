@@ -8,8 +8,6 @@ services:
       MYSQL_ROOT_PASSWORD: 12345  
     volumes:
       - mysql_proyecto_servidores:/var/lib/mysql
-    networks:
-      - mi_red
 
   proyecto-servidores:
     image: proyectoservidores:latest
@@ -22,12 +20,6 @@ services:
       MYSQL_HOST: ${MYSQL_HOST}
       MYSQL_DB: ${MYSQL_DB}
       MYSQL_PORT: 3306
-    networks:
-      - mi_red
 
 volumes:
   mysql_proyecto_servidores:
-
-networks:
-  mi_red:
-    driver: bridge
